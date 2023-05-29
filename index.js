@@ -4,11 +4,20 @@ let sum = 0
 let hasBlackJack = false
 let isAlive = false
 let message = ""
+let player ={
+  name: "ben",
+  score: 100
+}
 
 let messageEl = document.getElementById("message-el");
 let sumEl = document.getElementById("sum-el");
 // let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.getElementById("cards-el");
+let playerEl = document.getElementById("player-el");
+
+playerEl.textContent = player.name + " $" + player.score;
+
+
 
 //randomCard function
 function getRandomCard(){
