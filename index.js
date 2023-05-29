@@ -1,12 +1,10 @@
 let firstCard = 10;
 let secondCard = 4;
-
-let sum = firstCard + secondCard ;
+let cards = [firstCard, secondCard];
+let sum = firstCard + secondCard;
 let hasBlackJack = false;
 let isAlive = true;
 let message = "";
-
-
 
 let messageEl = document.getElementById("message-el");
 console.log(messageEl);
@@ -16,36 +14,40 @@ let sumEl = document.getElementById("sum-el");
 
 let cardEl = document.getElementById("cards-el");
 
-
 function startGame() {
   renderGame();
 }
 
 function renderGame() {
+  cardEl.textContent = "Cards: " + cards[0] + " " + cards[1];
+  
+  for (let i = 0; i < cards.length; i++) {
+    cardEl.textContent += cards[i] + " ";
+  }
+
+
+  sumEl.textContent = "Sum : " + sum;
+
   if (sum < 21) {
     message = "Do you want to draw a new card? 🙂";
   } else if (sum === 21) {
-    message = "Wohoo! You've got Blackjack! 🥳";
+    message = " You've got Blackjack! 🥳";
     hasBlackJack = true;
   } else {
     message = "You're out of the game! 😭";
     isAlive = false;
   }
   messageEl.textContent = message;
-
-  sumEl.textContent = "Sum : " + sum;
-
-  cardEl.textContent = "Cards :" + firstCard + " " + secondCard
 }
-
 
 function newCard() {
-  console.log("Drawing a new card from the deck!");
-  let card = 7
+  let card = 6;
   sum += card;
-  renderGame( )
+  // Push the card to the cards array
+  cards.push(card);
+  console.log(cards);
+  renderGame();
 }
-
 
 // log it out!
 // console.log(message);
